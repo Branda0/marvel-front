@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100%;
+  // height: 100%;
   // background-color: var(--clr-light);
   // background-color: rgb(255, 51, 0);
 }
@@ -262,7 +262,6 @@ body {
 }
 
 .header {
-  height: 100px;
   display: flex;
   width: 100%;
   align-items: center;
@@ -273,6 +272,7 @@ body {
   //   height: 200px;
 
   img {
+    margin: 15px 0;
     height: 70px;
   }
 
