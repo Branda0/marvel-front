@@ -1,17 +1,17 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import ComicCard from "../components/ComicCard";
 
-const Character = () => {
+const Character = ({ comicsFavorites, setComicsFavorites }) => {
   const { id } = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   useEffect(() => {
     try {
@@ -32,7 +32,9 @@ const Character = () => {
   console.log(data);
 
   return isLoading ? (
-    <span>IS LOADING</span>
+    <div className="loading-page">
+      <span>IS LOADING</span>
+    </div>
   ) : (
     <div className="character">
       <div className="container">
@@ -41,25 +43,35 @@ const Character = () => {
             <img src={`${data.thumbnail.path}.${data.thumbnail.extension}`} alt="character" />
           </div>
           <div className="character-text-container">
-            <h2>{data.name.toUpperCase()}</h2>
+            <h1>{data.name.toUpperCase()}</h1>
             <p>{data.description}</p>
           </div>
         </div>
-        {/* <h1 className=" title container">Visible dans ...</h1> */}
-      </div>
-      <span>Featured in ...</span>
-      {data.comics.length > 0 && (
-        <div className="comics-container">
-          <div className="container">
+        <span>Featured in ...</span>
+        {data.comics.length > 0 && (
+          <>
             <div className="comics-thumbnails">
               {data.comics &&
                 data.comics.map((comic) => {
-                  return <ComicCard key={comic._id} comic={comic} />;
+                  if (
+                    comic.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
+                  ) {
+                    return (
+                      <ComicCard
+                        key={comic._id}
+                        comic={comic}
+                        comicsFavorites={comicsFavorites}
+                        setComicsFavorites={setComicsFavorites}
+                      />
+                    );
+                  } else {
+                    return <></>;
+                  }
                 })}
             </div>
-          </div>
-        </div>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

@@ -4,13 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import CharacterCard from "../components/CharacterCard";
 
-const Characters = () => {
+const Characters = ({ charactersFavorites, setCharactersFavorites }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
 
   const storedPage = Number(localStorage.getItem("page"));
   const storedSearch = localStorage.getItem("search");
-  const storedCharacterName = localStorage.getItem("characterName");
 
   const [page, setPage] = useState(storedPage || 1);
   const [search, setSearch] = useState(storedSearch || "");
@@ -18,9 +17,7 @@ const Characters = () => {
   useEffect(() => {
     localStorage.setItem("page", Number(page));
     localStorage.setItem("search", String(search));
-  }, [search, page]);
 
-  useEffect(() => {
     try {
     } catch (error) {
       console.log({ error: error.message });
@@ -59,7 +56,7 @@ const Characters = () => {
           <span>{data.count} Results</span>
         </div>
         <div className="page-selector">
-          {page === 1 ? (
+          {page === 1 || data.count === 0 ? (
             <FontAwesomeIcon
               className="prec-page icon"
               icon="chevron-left"
@@ -73,9 +70,9 @@ const Characters = () => {
             />
           )}
           <span>
-            {page} / {Math.ceil(data.count / 100)}
+            {data.count === 0 ? 0 : page} / {Math.ceil(data.count / 100)}
           </span>
-          {page === Math.ceil(data.count / 100) ? (
+          {page === Math.ceil(data.count / 100) || data.count === 0 ? (
             <FontAwesomeIcon
               className="next-page icon"
               icon="chevron-left"
@@ -96,7 +93,16 @@ const Characters = () => {
           if (
             character.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
           ) {
-            return <CharacterCard key={character._id} character={character} />;
+            return (
+              <CharacterCard
+                key={character._id}
+                character={character}
+                setCharactersFavorites={setCharactersFavorites}
+                charactersFavorites={charactersFavorites}
+              />
+            );
+          } else {
+            return <div key={character._id}></div>;
           }
         })}
       </div>

@@ -1,13 +1,13 @@
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const Comic = () => {
   const location = useLocation();
   const { comic } = location.state;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   return (
     <div className="comic">

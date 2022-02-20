@@ -4,13 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import ComicCard from "../components/ComicCard";
 
-const Comics = () => {
+const Comics = ({ setComicsFavorites, comicsFavorites }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
 
   const storedPage = Number(localStorage.getItem("page"));
   const storedSearch = localStorage.getItem("search");
-  const storedCharacterName = localStorage.getItem("characterName");
 
   const [page, setPage] = useState(storedPage || 1);
   const [search, setSearch] = useState(storedSearch || "");
@@ -18,9 +17,7 @@ const Comics = () => {
   useEffect(() => {
     localStorage.setItem("page", Number(page));
     localStorage.setItem("search", String(search));
-  }, [search, page]);
 
-  useEffect(() => {
     try {
     } catch (error) {
       console.log({ error: error.message });
@@ -94,7 +91,16 @@ const Comics = () => {
       <div className="cards-container">
         {data.results.map((comic) => {
           if (comic.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
-            return <ComicCard key={comic._id} comic={comic} />;
+            return (
+              <ComicCard
+                key={comic._id}
+                comic={comic}
+                comicsFavorites={comicsFavorites}
+                setComicsFavorites={setComicsFavorites}
+              />
+            );
+          } else {
+            return <></>;
           }
         })}
       </div>
