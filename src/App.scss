@@ -16,9 +16,219 @@ body {
 .app-container {
   background-color: var(--clr-dark);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%;
   // background-color: var(--clr-light);
   // background-color: rgb(255, 51, 0);
 }
+
+.modal-no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+//SIGNUP AND LOGIN MODALS
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  .close-modal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+
+  .publish-validate-modal {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    width: 350px;
+    padding: 30px;
+    position: relative;
+
+    h1 {
+      font-size: 24px;
+      margin-top: 15px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 15px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    button {
+      height: 45px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      margin-top: 45px;
+      background-color: var(--clr-red);
+      margin: 40px 0 40px 0;
+      cursor: pointer;
+    }
+
+    span {
+      font-size: 13px;
+      color: var(--clr-red);
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+
+  .signup-modal {
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    width: 350px;
+    padding: 30px;
+    overflow: hidden;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        outline: none;
+        border: none;
+        height: 50px;
+        border-bottom: 1px solid #e7e7e7;
+      }
+
+      .form-input-password {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e7e7e7;
+
+        .input {
+          flex: 1;
+          border-bottom: none;
+        }
+        .eye-icon {
+          color: #898989;
+          font-size: 12px;
+          cursor: pointer;
+        }
+      }
+
+      p {
+        font-size: 12px;
+        color: #999999;
+      }
+
+      .error-msg {
+        color: var(--clr-red);
+        font-size: 12px;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      button {
+        height: 45px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 45px 0 20px 0;
+        background-color: var(--clr-red);
+        cursor: pointer;
+      }
+    }
+    .bottom-link {
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+
+  .login-modal {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    width: 350px;
+    padding: 30px;
+    position: relative;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        outline: none;
+        border: none;
+        height: 50px;
+        border-bottom: 1px solid #e7e7e7;
+      }
+
+      .form-input-password {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e7e7e7;
+
+        .input {
+          flex: 1;
+          border-bottom: none;
+        }
+        .eye-icon {
+          color: #898989;
+          font-size: 12px;
+          cursor: pointer;
+        }
+      }
+
+      .error-msg {
+        color: var(--clr-red);
+        font-size: 12px;
+        text-align: center;
+        margin-top: 30px;
+      }
+      button {
+        height: 45px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 45px;
+        background-color: var(--clr-red);
+        margin: 45px 0 20px 0;
+        cursor: pointer;
+      }
+    }
+    .bottom-link {
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}
+
 .loading-screen {
   height: 100vh;
   background-color: var(--clr-dark);
@@ -52,21 +262,48 @@ body {
 }
 
 .header {
-  height: 140px;
+  height: 100px;
   display: flex;
+  width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   // .container {
   //   background-color: green;
   //   height: 200px;
 
   img {
-    height: 100px;
+    height: 70px;
   }
-  span {
-    // background-color: blue;
-    height: 120px;
+
+  .right-header {
+    display: flex;
+
+    button {
+      background-color: var(--clr-light);
+      color: var(--clr-red);
+      margin: 0 10px;
+      width: 100px;
+      height: 28px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .disconnect-btn {
+      background-color: var(--clr-red);
+      padding: 0 8px;
+      color: white;
+      width: fit-content;
+    }
+
+    .loggin-signup-btn-container {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
 
@@ -144,6 +381,7 @@ body {
 
 // CHARACTERS COMICS & FAVORITES PAGE
 .page {
+  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: var(--clr-dark);
@@ -151,7 +389,7 @@ body {
   .choices {
     display: flex;
     align-items: flex-end;
-    margin-top: 20px;
+    margin-top: 40px;
     padding-left: 20px;
 
     span {

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import "./App.scss";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
+import Cookies from "js-cookie";
+
 import {
   faEye,
   faXmark,
@@ -27,6 +29,8 @@ import Favorites from "./pages/Favorites";
 //components import
 import Header from "./components/Header";
 import Menu from "./components/Menu";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 library.add(
   faEye,
@@ -42,6 +46,11 @@ library.add(
 );
 
 function App() {
+  const [isLogged, setIsLogged] = useState(Cookies.get("userToken") ? true : false);
+
+  const [signupModal, setSignupModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
+
   const storedCharactersFavorites = JSON.parse(localStorage.getItem("charactersFavorites"));
   const storedComicsFavorites = JSON.parse(localStorage.getItem("comicsFavorites"));
 
@@ -54,11 +63,31 @@ function App() {
   }, [charactersFavorites, comicsFavorites]);
 
   // localStorage.clear();
+  const setTokens = (token) => {
+    if (token) {
+      Cookies.set("userToken", token, { expires: 7 });
+      setIsLogged(true);
+    } else {
+      Cookies.remove("userToken");
+      setIsLogged(false);
+    }
+  };
 
   return (
     <Router>
-      <div className="app-container">
-        <Header />
+      <div className={`app-container ${(loginModal || signupModal) && "modal-no-scroll"}`}>
+        <Header
+          isLogged={isLogged}
+          setTokens={setTokens}
+          setSignupModal={setSignupModal}
+          setLoginModal={setLoginModal}
+        />
+        {loginModal && (
+          <Login setTokens={setTokens} setLoginModal={setLoginModal} setSignupModal={setSignupModal} />
+        )}
+        {signupModal && (
+          <Signup setTokens={setTokens} setLoginModal={setLoginModal} setSignupModal={setSignupModal} />
+        )}
         <Menu />
         <Routes>
           <Route

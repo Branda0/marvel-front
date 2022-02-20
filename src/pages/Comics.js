@@ -10,14 +10,14 @@ const Comics = ({ setComicsFavorites, comicsFavorites }) => {
   const [data, setData] = useState();
 
   const storedPage = Number(localStorage.getItem("page"));
-  const storedSearch = localStorage.getItem("search");
+  const storedSearch = localStorage.getItem("searchComics");
 
   const [page, setPage] = useState(storedPage || 1);
   const [search, setSearch] = useState(storedSearch || "");
 
   useEffect(() => {
     localStorage.setItem("page", Number(page));
-    localStorage.setItem("search", String(search));
+    localStorage.setItem("searchComics", String(search));
 
     try {
     } catch (error) {
