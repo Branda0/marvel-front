@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import ComicCard from "../components/ComicCard";
+import Loading from "../components/Loading";
 
 const Comics = ({ setComicsFavorites, comicsFavorites }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,9 +37,7 @@ const Comics = ({ setComicsFavorites, comicsFavorites }) => {
   }, [page, search]);
 
   return isLoading ? (
-    <div className="loading-page">
-      <span>IS LOADING</span>
-    </div>
+    <Loading />
   ) : (
     <div className="page container">
       <div className="navBar">

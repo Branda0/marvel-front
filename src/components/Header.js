@@ -1,9 +1,9 @@
+import logoHeader from "../assets/img/MarvelLogo.png";
+
 const Header = () => {
   return (
-    <div className="header">
-      {/* <div className="container"> */}
-      <span>HEADEddsd fdfdfdR</span>
-      {/* </div> */}
+    <div className="header container">
+      <img src={logoHeader} alt="" />
     </div>
   );
 };

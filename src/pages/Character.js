@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import ComicCard from "../components/ComicCard";
+import Loading from "../components/Loading";
 
 const Character = ({ comicsFavorites, setComicsFavorites }) => {
   const { id } = useParams();
@@ -32,9 +33,7 @@ const Character = ({ comicsFavorites, setComicsFavorites }) => {
   console.log(data);
 
   return isLoading ? (
-    <div className="loading-page">
-      <span>IS LOADING</span>
-    </div>
+    <Loading />
   ) : (
     <div className="character">
       <div className="container">
