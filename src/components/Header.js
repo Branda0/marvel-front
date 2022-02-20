@@ -16,7 +16,7 @@ const Header = ({ isLogged, setTokens, setSignupModal, setLoginModal }) => {
           </button>
         ) : (
           <div className="loggin-signup-btn-container ">
-            <button onClick={() => setSignupModal(true)}>SIGN IN</button>
+            <button onClick={() => setSignupModal(true)}>SIGN UP</button>
             <button onClick={() => setLoginModal(true)}>LOGIN</button>
           </div>
         )}
