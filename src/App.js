@@ -14,6 +14,7 @@ import {
   faSpinner,
   faChevronLeft,
   faChevronRight,
+  faBars,
   faHeart as fasFaHeart,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -34,6 +35,7 @@ import Signup from "./components/Signup";
 
 library.add(
   faEye,
+  faBars,
   faXmark,
   faMagnifyingGlass,
   faCaretUp,
