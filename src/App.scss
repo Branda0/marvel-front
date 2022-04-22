@@ -14,7 +14,7 @@ body {
 
   --container-max-width: 1250px;
   --container-padding: 20px;
-  --min: calc(100% - 2 * var(--container-max-width));
+  --min: calc(100% - 2 * var(--container-padding));
 
   --cards-per-page: 5;
   --cards-padding: 20px;
@@ -260,7 +260,7 @@ body {
 
 .container {
   // max-width: 1250px;
-  width: min(100%, var(--container-max-width));
+  width: min(var(--min), var(--container-max-width));
   margin: 0 auto;
   border: 2px solid red;
 }
@@ -861,9 +861,6 @@ body {
 //FAVORITES PAGE
 
 @media (max-width: 1290px) {
-  .container {
-    margin: 0 20px;
-  }
 }
 
 @media (max-width: 1024px) {
