@@ -258,7 +258,7 @@ body {
 }
 
 .container {
-  width: min(100% - (2 * var(--container-padding)), var(--container-max-width));
+  width: min(calc(100% - (2 * var(--container-padding))), var(--container-max-width));
   margin-inline: auto;
   border: 2px solid red;
 }
@@ -279,7 +279,7 @@ body {
     display: flex;
     border: 3px solid green;
     // gap: 10px;
-   
+
     button {
       background-color: var(--clr-light);
       color: var(--clr-red);
@@ -306,54 +306,49 @@ body {
       justify-content: space-between;
     }
 
-    .burger-menu{
+    .burger-menu {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       width: 30px;
       height: 30px;
 
-      div{
+      div {
         width: 30px;
         height: 3px;
         background-color: white;
         transition: all 0.2s linear;
         transform-origin: 1px;
         border-radius: 2px;
-  
 
         &:first-child {
           transform: rotate(0deg);
         }
-    
+
         &:nth-child(2) {
           // opacity: 0;
           // transform: translateX(100%);
         }
-    
+
         &:nth-child(3) {
           transform: rotate(0deg);
         }
       }
 
-      &.opened{
-        
-        div{
+      &.opened {
+        div {
           // background-color: red;
           &:first-child {
-            
             transform: rotate(45deg);
-           
           }
-      
+
           &:nth-child(2) {
             opacity: 0;
             transform: scale(0);
           }
-      
+
           &:nth-child(3) {
             transform: rotate(-45deg);
-           
           }
         }
       }
@@ -621,7 +616,7 @@ body {
           padding: 20px 5%;
           transition: transform 300ms ease;
           color: white;
-          background: linear-gradient(hsl(0 0% 0% / 0), hsl(0 0% 0% / 0.2) 20%, hsl(0 0% 0% / 1));    
+          background: linear-gradient(hsl(0 0% 0% / 0), hsl(0 0% 0% / 0.2) 20%, hsl(0 0% 0% / 1));
         }
       }
     }
@@ -631,7 +626,6 @@ body {
       .card-content {
         display: block;
         transform: translateY(-100%);
-       
       }
     }
 
@@ -644,7 +638,7 @@ body {
       border-radius: 5px;
       // border: 3px solid red;
       padding: var(--cards-padding);
-     
+
       h2 {
         font-size: 15px;
         font-weight: 700;
@@ -883,32 +877,27 @@ body {
     --cards-padding: 10px;
     --container-padding: 10px;
   }
-  .page{
-  .cards-container{
-    .character-card-container {
-      h2 {
-        font-size: 15px;
+  .page {
+    .cards-container {
+      .character-card-container {
+        h2 {
+          font-size: 15px;
+        }
+        p {
+          font-size: 10px;
+        }
       }
-      p{
-        font-size: 10px;
-      }
-    }
-    .comic-card-container {
-      h2 {
-        font-size: 13px;
+      .comic-card-container {
+        h2 {
+          font-size: 13px;
+        }
       }
     }
   }
-  }
-
- 
-
-  
 }
 
 @media (max-width: 480px) {
   :root {
     --cards-per-page: 2;
-   
   }
 }
