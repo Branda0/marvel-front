@@ -14,6 +14,7 @@ body {
 
   --container-max-width: 1250px;
   --container-padding: 20px;
+  --min: calc(100% - 40px);
 
   --cards-per-page: 5;
   --cards-padding: 20px;
@@ -258,20 +259,18 @@ body {
 }
 
 .container {
-  // width: min(calc(100% - (2 * var(--container-padding))), var(--container-max-width));
-  width: min(calc(100% - 40px), var(--container-max-width));
-  width: 1250px;
-  margin-inline: auto;
+  max-width: 1250px;
+  // width: min(100%, var(--container-max-width));
   margin: 0 auto;
   border: 2px solid red;
 }
 
 .header {
   display: flex;
+
   align-items: center;
   justify-content: space-between;
   border: 3px solid green;
-  padding: 1px;
   height: 100px;
 
   img {
@@ -861,10 +860,10 @@ body {
 
 //FAVORITES PAGE
 
-@media (max-width: 1240px) {
-  // .container {
-  //   margin: 0 20px;
-  // }
+@media (max-width: 1290px) {
+  .container {
+    margin: 0 20px;
+  }
 }
 
 @media (max-width: 1024px) {
