@@ -259,6 +259,7 @@ body {
 
 .container {
   // width: min(calc(100% - (2 * var(--container-padding))), var(--container-max-width));
+  width: min(1250px, 500px);
   width: 1250px;
   margin-inline: auto;
   margin: 0 auto;
