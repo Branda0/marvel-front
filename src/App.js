@@ -32,6 +32,7 @@ import Header from "./components/Header";
 import Menu from "./components/Menu";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import BurgerModal from "./components/BurgerModal";
 
 library.add(
   faEye,
@@ -52,6 +53,7 @@ function App() {
 
   const [signupModal, setSignupModal] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
+  const [burgerModal, setBurgerModal] = useState(false);
 
   const storedCharactersFavorites = JSON.parse(localStorage.getItem("charactersFavorites"));
   const storedComicsFavorites = JSON.parse(localStorage.getItem("comicsFavorites"));
@@ -80,15 +82,27 @@ function App() {
       <div className={`app-container ${(loginModal || signupModal) && "modal-no-scroll"}`}>
         <Header
           isLogged={isLogged}
+          burgerModal={burgerModal}
           setTokens={setTokens}
           setSignupModal={setSignupModal}
           setLoginModal={setLoginModal}
+          setBurgerModal={setBurgerModal}
         />
         {loginModal && (
           <Login setTokens={setTokens} setLoginModal={setLoginModal} setSignupModal={setSignupModal} />
         )}
         {signupModal && (
           <Signup setTokens={setTokens} setLoginModal={setLoginModal} setSignupModal={setSignupModal} />
+        )}
+        {burgerModal && (
+          <BurgerModal
+            isLogged={isLogged}
+            burgerModal={burgerModal}
+            setBurgerModal={setBurgerModal}
+            setTokens={setTokens}
+            setSignupModal={setSignupModal}
+            setLoginModal={setLoginModal}
+          />
         )}
         <Menu />
         <Routes>

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import logoHeader from "../assets/img/MarvelLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import BurgerModal from "./BurgerModal";
 
-const Header = ({ isLogged, setTokens, setSignupModal, setLoginModal }) => {
+const Header = ({ isLogged, burgerModal, setTokens, setBurgerModal, setSignupModal, setLoginModal }) => {
   const [openedMenu, setOpenedMenu] = useState(false);
 
   return (
@@ -29,13 +30,12 @@ const Header = ({ isLogged, setTokens, setSignupModal, setLoginModal }) => {
           )}
         </div>
         <div
-          className={`burger-menu ${openedMenu ? "opened" : ""}`}
-          onClick={() => setOpenedMenu(!openedMenu)}
+          className={`burger-menu ${burgerModal ? "opened" : ""}`}
+          onClick={() => setBurgerModal(!burgerModal)}
         >
           <div></div>
           <div></div>
           <div></div>
-          {/* <FontAwesomeIcon icon="fa-solid fa-bars" /> */}
         </div>
       </div>
     </div>
