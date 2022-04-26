@@ -371,13 +371,13 @@ body {
       display: none;
       flex-direction: column;
       justify-content: space-around;
-      width: 30px;
+      width: fit-content;
       height: 30px;
-
+      position: relative;
+      z-index: 3;
       cursor: pointer;
 
       div {
-        z-index: 3;
         width: 30px;
         height: 3px;
         background-color: white;
@@ -538,8 +538,7 @@ body {
       align-items: center;
       min-width: 50%;
       position: relative;
-
-      margin-right: 10px;
+      margin-right: 20px;
 
       .search-icon {
         color: var(--clr-light);
@@ -576,7 +575,6 @@ body {
     }
 
     .favorite {
-      // border: 3px solid green;
       width: 100%;
     }
     .favorite::after {
