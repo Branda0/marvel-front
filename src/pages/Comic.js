@@ -17,9 +17,7 @@ const Comic = () => {
       <div className="comic">
         <div className="container">
           <div className="comic-infos">
-            <div className="comic-img-container">
-              <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt="character" />
-            </div>
+            <img src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`} alt="character" />
             <div className="comic-text-container">
               <h2>{comic.title}</h2>
               <p>{comic.description}</p>
