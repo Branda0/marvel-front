@@ -9,14 +9,14 @@ const Characters = ({ charactersFavorites, setCharactersFavorites }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
 
-  const storedPage = Number(localStorage.getItem("page"));
+  const storedPage = Number(localStorage.getItem("charPage"));
   const storedSearch = localStorage.getItem("searchCharacters");
 
   const [page, setPage] = useState(storedPage || 1);
   const [search, setSearch] = useState(storedSearch || "");
 
   useEffect(() => {
-    localStorage.setItem("page", Number(page));
+    localStorage.setItem("charPage", Number(page));
     localStorage.setItem("searchCharacters", String(search));
 
     try {
