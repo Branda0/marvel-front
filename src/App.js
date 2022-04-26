@@ -66,6 +66,15 @@ function App() {
     localStorage.setItem("comicsFavorites", JSON.stringify(comicsFavorites));
   }, [charactersFavorites, comicsFavorites]);
 
+  // Apply or remove overflow:hidden to body when a modal is opened
+  useEffect(() => {
+    if (loginModal || signupModal || burgerModal) {
+      document.body.classList.add("modal-no-scroll");
+    } else {
+      document.body.classList.remove("modal-no-scroll");
+    }
+  }, [loginModal, signupModal, burgerModal]);
+
   // localStorage.clear();
   const setTokens = (token) => {
     if (token) {
@@ -79,7 +88,7 @@ function App() {
 
   return (
     <Router>
-      <div className={`app-container ${(loginModal || signupModal || burgerModal) && "modal-no-scroll"}`}>
+      <div className={`app-container ${(loginModal || signupModal || burgerModal) && ""}`}>
         <Header
           isLogged={isLogged}
           burgerModal={burgerModal}

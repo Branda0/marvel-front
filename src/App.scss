@@ -3,8 +3,11 @@
 body {
   font-family: "Roboto Condensed", sans-serif;
   box-sizing: border-box;
+  // overflow: hidden;
 }
-
+body {
+  border: 3px solid green;
+}
 :root {
   --clr-darker: #151515;
   --clr-dark: #202020;
@@ -25,10 +28,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  border: 3px solid red;
 }
 
 .modal-no-scroll {
-  position: fixed;
   overflow: hidden;
 }
 
@@ -38,7 +42,6 @@ body {
   height: 100vh;
   display: flex;
   position: fixed;
-  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.7);
   align-items: center;
   justify-content: center;
@@ -536,8 +539,8 @@ body {
       display: flex;
       align-items: center;
       width: max-content;
-      min-width: 50%;
-      // max-width: 70%;
+      // min-width: 50%;
+      max-width: 70%;
       position: relative;
       border: 2px solid green;
       margin-right: 10px;
