@@ -7,38 +7,35 @@ const BurgerModal = ({ setTokens, setBurgerModal, burgerModal, isLogged, setLogi
       }}
     >
       <div className="burger-modal" onClick={(e) => e.stopPropagation()}>
-        <span>YYOYOYYOYOYOYOOYOYOYO</span>
         {isLogged ? (
-          <button
+          <span
             onClick={() => {
               setTokens(null);
-              //   setBurgerModal(false);
+              setBurgerModal(false);
             }}
             className="disconnect-btn"
           >
             SIGN OUT
-          </button>
+          </span>
         ) : (
           <>
-            <div className="loggin-signup-btn-container ">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setSignupModal(true);
-                  setBurgerModal(false);
-                }}
-              >
-                SIGN UP
-              </button>
-              <button
-                onClick={() => {
-                  setLoginModal(true);
-                  setBurgerModal(false);
-                }}
-              >
-                LOGIN
-              </button>
-            </div>
+            <span
+              onClick={(e) => {
+                e.preventDefault();
+                setSignupModal(true);
+                setBurgerModal(false);
+              }}
+            >
+              SIGN UP
+            </span>
+            <span
+              onClick={() => {
+                setLoginModal(true);
+                setBurgerModal(false);
+              }}
+            >
+              LOGIN
+            </span>
           </>
         )}
       </div>

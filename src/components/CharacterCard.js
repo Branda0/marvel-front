@@ -23,10 +23,6 @@ const CharacterCard = ({ character, charactersFavorites, setCharactersFavorites 
     setCharactersFavorites(newFavorites);
   };
 
-  console.log("YO");
-  console.log(charactersFavorites);
-  console.log(favoriteIndex);
-
   return (
     <Link className="character-card-container" to={`/character/${character._id}`}>
       <div className="card">

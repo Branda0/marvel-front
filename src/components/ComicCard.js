@@ -22,7 +22,6 @@ const ComicCard = ({ comic, setComicsFavorites, comicsFavorites }) => {
     setComicsFavorites(newFavorites);
   };
 
-  console.log("COMIC ====>", comic);
   return (
     <Link className="comic-card-container" to={`/comic/${comic._id}`} state={{ comic }}>
       <div className="card">

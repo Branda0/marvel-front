@@ -79,7 +79,7 @@ function App() {
 
   return (
     <Router>
-      <div className={`app-container ${(loginModal || signupModal) && "modal-no-scroll"}`}>
+      <div className={`app-container ${(loginModal || signupModal || burgerModal) && "modal-no-scroll"}`}>
         <Header
           isLogged={isLogged}
           burgerModal={burgerModal}
