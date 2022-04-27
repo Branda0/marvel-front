@@ -332,10 +332,9 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  height: 100px;
-
   img {
     height: 70px;
+    margin-block: 10px;
   }
 
   .right-header {
@@ -417,24 +416,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  // border: red solid 2px;
   border-bottom: 1px solid #757575;
   border-top: 1px solid #757575;
   background-color: #333;
-
+  font-size: 15px;
   .links-container {
     display: flex;
     height: 40px;
     margin: 15px 0;
-
-    // border: 3px solid blue;
 
     .link {
       display: flex;
       align-items: center;
       text-decoration: none;
 
-      // border: 2px solid orange;
       span {
         display: flex;
         position: relative;
@@ -442,6 +437,7 @@ body {
         align-items: center;
         margin: 0 10px;
         font-weight: 600;
+
         color: white;
       }
 
@@ -527,9 +523,7 @@ body {
     background-color: transparent;
     color: var(--clr-light);
     height: 60px;
-    // border: 2px solid red;
     margin-block: 20px;
-    // padding-left: 20px;
 
     //SEARCHBAR
     .searchBar {
@@ -538,7 +532,6 @@ body {
       align-items: center;
       min-width: 50%;
       position: relative;
-      margin-right: 20px;
 
       .search-icon {
         color: var(--clr-light);
@@ -591,7 +584,7 @@ body {
     .page-selector {
       display: flex;
       align-items: center;
-
+      margin-left: 20px;
       span {
         font-size: 16px;
         margin-inline: 10px;
@@ -750,123 +743,106 @@ body {
 
 // CHARACTER PAGE
 .character {
-  // display: flex;
-  // border: 3px solid pink;
-  // background-color: ;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
-  .container {
+  .character-infos {
     display: flex;
-    flex-direction: column;
-
-    .character-infos {
-      display: flex;
-
-      .character-img-container {
-        // display: flex;
-        // border: 3px solid red;
-        padding: 30px;
-        height: 500px;
-        img {
-          height: 100%;
-          border-radius: 5px;
-        }
-      }
-
-      .character-text-container {
-        width: 100%;
-        // border: green solid 3px;
-        padding: 30px;
-        color: var(--clr-light);
-        display: flex;
-        flex-direction: column;
-        h1 {
-          font-size: 70px;
-          margin: 80px 0;
-          font-weight: 700;
-        }
-        p {
-          font-size: 16px;
-        }
-      }
+    img {
+      object-fit: contain;
+      height: 500px;
+      padding: 30px;
+      border-radius: 5px;
     }
 
-    span {
-      margin-top: 30px;
-      margin-bottom: 20px;
-      padding-left: 20px;
-      padding-bottom: 10px;
-      // width: 100%;
-      font-size: 40px;
-      font-weight: 200;
+    .character-text-container {
+      width: 100%;
+      padding: 30px;
       color: var(--clr-light);
-      background-color: var(--clr-dark);
-
-      position: relative;
-    }
-
-    span:after {
-      content: "";
-      width: 50%;
-      height: 1px;
-      background-color: #f3f3f3;
-      position: absolute;
-      bottom: 0;
-      left: 20px;
-    }
-
-    .comics-thumbnails {
-      padding-bottom: 30px;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      h1 {
+        font-size: 70px;
+        margin: 80px 0;
+        font-weight: 700;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
 
-      .comic-card-container {
-        padding: 20px;
+  span {
+    margin: 30px 20px 20px 20px;
+    padding-bottom: 10px;
+    font-size: 40px;
+    font-weight: 200;
+    color: var(--clr-light);
+    background-color: var(--clr-dark);
+    position: relative;
+  }
+
+  span:after {
+    content: "";
+    width: 50%;
+    height: 1px;
+    background-color: #f3f3f3;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .comics-thumbnails {
+    padding-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .comic-card-container {
+      padding: 20px;
+      position: relative;
+      text-decoration: none;
+      color: var(--clr-dark);
+      height: fit-content;
+      width: calc(100% / var(--cards-per-page));
+
+      h2 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--clr-light);
+        // margin-top: 10px;
+      }
+
+      .card {
         position: relative;
-        text-decoration: none;
-        color: var(--clr-dark);
-        height: fit-content;
-        width: calc(100% / var(--cards-per-page));
+        transition: 300ms ease-in;
 
-        h2 {
+        .heart-icon {
+          position: absolute;
+          top: 0;
+          right: 8%;
           font-size: 15px;
-          font-weight: 700;
+          padding: 12px 8px 22px;
+          background-color: rgba(0, 0, 0, 65%);
           color: var(--clr-light);
-          // margin-top: 10px;
+          clip-path: polygon(100% 0%, 100% 100%, 52% 79%, 0% 100%, 3% 0%);
+        }
+        .favorite {
+          color: rgb(255, 22, 22);
         }
 
-        .card {
-          position: relative;
-          transition: 300ms ease-in;
-
-          .heart-icon {
-            position: absolute;
-            top: 0;
-            right: 8%;
-            font-size: 15px;
-            padding: 12px 8px 22px;
-            background-color: rgba(0, 0, 0, 65%);
-            color: var(--clr-light);
-            clip-path: polygon(100% 0%, 100% 100%, 52% 79%, 0% 100%, 3% 0%);
-          }
-          .favorite {
-            color: rgb(255, 22, 22);
-          }
-
-          img {
-            width: 100%;
-            height: 100%;
-            border-radius: 2px;
-            object-fit: cover;
-          }
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 2px;
+          object-fit: cover;
         }
+      }
 
-        .card:hover {
-          transform: translateY(-3%) scale(1.025);
-          transform-origin: bottom;
-          box-shadow: 0px 0px 20px rgb(107, 107, 107);
-          // box-shadow: 10px var(--clr-light);
-        }
+      .card:hover {
+        transform: translateY(-3%) scale(1.025);
+        transform-origin: bottom;
+        box-shadow: 0px 0px 20px rgb(107, 107, 107);
+        // box-shadow: 10px var(--clr-light);
       }
     }
   }
@@ -879,8 +855,8 @@ body {
 
 .comic {
   backdrop-filter: brightness(20%) blur(10px);
-  padding: 50px 0;
-  border: 3px solid red;
+  padding: 50px 0px;
+
   .comic-infos {
     display: flex;
 
@@ -951,6 +927,27 @@ body {
       }
     }
   }
+
+  //character page
+  .character {
+    .character-infos {
+      img {
+        height: 400px;
+        padding: 20px;
+      }
+
+      .character-text-container {
+        padding: 20px;
+        h1 {
+          font-size: 60px;
+          margin: 20px 0;
+        }
+        p {
+          font-size: 15px;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 720px) {
@@ -961,6 +958,9 @@ body {
   }
 
   .header {
+    img {
+      height: 60px;
+    }
     .right-header {
       .desktop-menu {
         display: none;
@@ -1010,7 +1010,7 @@ body {
   .comic {
     .comic-infos {
       display: flex;
-
+      align-items: center;
       img {
         height: 300px;
       }
@@ -1028,11 +1028,42 @@ body {
       }
     }
   }
+
+  //character page
+  .character {
+    .character-infos {
+      padding-top: 10px;
+      img {
+        height: 250px;
+        padding: 10px;
+      }
+
+      .character-text-container {
+        padding: 10px;
+        h1 {
+          font-size: 30px;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+    span {
+      margin: 20px 10px 10px 10px;
+      font-size: 25px;
+      &:after {
+        width: 100%;
+      }
+    }
+  }
 }
 
 @media (max-width: 480px) {
   :root {
     --cards-per-page: 2;
+  }
+  .menu {
+    font-size: 13px;
   }
   .page {
     .navBar {
@@ -1044,6 +1075,7 @@ body {
     }
   }
 
+  //comic page
   .comic {
     padding: 30px 0px;
     .comic-infos {
@@ -1064,6 +1096,20 @@ body {
         }
         p {
           font-size: 14px;
+        }
+      }
+    }
+  }
+
+  //character page
+  .character {
+    .character-infos {
+      flex-direction: column;
+
+      .character-text-container {
+        padding: 10px;
+        h1 {
+          margin-top: 0px;
         }
       }
     }
