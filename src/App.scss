@@ -515,15 +515,14 @@ body {
   }
 
   .navBar {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
     color: var(--clr-light);
     height: 60px;
-    margin-block: 20px;
-
+    margin: 10px;
+    // border: 3px solid red;
     //SEARCHBAR
     .searchBar {
       height: 100%;
@@ -1066,6 +1065,7 @@ body {
   }
   .page {
     .navBar {
+      margin-top: 0px;
       .searchBar {
         span {
           display: none;
