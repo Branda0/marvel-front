@@ -37,9 +37,7 @@ const Characters = ({ charactersFavorites, setCharactersFavorites }) => {
   }, [page, search]);
 
   return isLoading ? (
-    <div className="loading-page">
-      <Loading />
-    </div>
+    <Loading />
   ) : (
     <div className="page container">
       <div className="navBar">
