@@ -1066,9 +1066,18 @@ body {
   .page {
     .navBar {
       margin-top: 0px;
+      margin-inline: 5px;
       .searchBar {
         span {
           display: none;
+        }
+      }
+      .page-selector {
+        .icon {
+          font-size: 15px;
+        }
+        span {
+          font-size: 13px;
         }
       }
     }
