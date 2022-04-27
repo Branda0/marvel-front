@@ -36,7 +36,7 @@ const Comics = ({ setComicsFavorites, comicsFavorites }) => {
     fetchData();
   }, [page, search]);
 
-  return isLoading ? (
+  return !isLoading ? (
     <Loading />
   ) : (
     <div className="page container">

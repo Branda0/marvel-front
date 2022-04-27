@@ -295,7 +295,7 @@ body {
 }
 
 .loading-screen {
-  height: 100vh;
+  flex: 1;
   background-color: var(--clr-dark);
   display: flex;
   flex-direction: column;
@@ -321,10 +321,9 @@ body {
 }
 
 .container {
-  // max-width: 1250px;
   width: min(var(--min), var(--container-max-width));
   margin: 0 auto;
-  // border: 2px solid red;
+  height: 100%;
 }
 
 .header {
