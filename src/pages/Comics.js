@@ -26,7 +26,7 @@ const Comics = ({ setComicsFavorites, comicsFavorites }) => {
     const fetchData = async () => {
       //   const response = await axios.get(`http://localhost:4000/characters?page=${page}&name=${characterName}`);
       const response = await axios.get(
-        `https://brandao-marvel.herokuapp.com/comics?page=${page}&title=${search}`
+        `https://branda0-marvel.up.railway.app/comics?page=${page}&title=${search}`
       );
 
       setData(response.data);

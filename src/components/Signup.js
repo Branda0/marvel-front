@@ -16,7 +16,7 @@ const Signup = ({ setTokens, setSignupModal, setLoginModal }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("https://brandao-marvel.herokuapp.com/user/signup", {
+      const response = await axios.post("https://branda0-marvel.up.railway.app/user/signup", {
         email: email,
         username: name,
         password: password,

@@ -26,7 +26,7 @@ const Characters = ({ charactersFavorites, setCharactersFavorites }) => {
     const fetchData = async () => {
       //   const response = await axios.get(`http://localhost:4000/characters?page=${page}&name=${characterName}`);
       const response = await axios.get(
-        `https://brandao-marvel.herokuapp.com/characters?page=${page}&name=${search}`
+        `https://branda0-marvel.up.railway.app/characters?page=${page}&name=${search}`
       );
 
       setData(response.data);
